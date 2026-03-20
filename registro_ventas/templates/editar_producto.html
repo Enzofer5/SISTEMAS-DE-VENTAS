@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Editar producto</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+
+<body class="login-body">
+
+<div class="form-container">
+
+<h2>✏️ Editar Producto</h2>
+
+<form method="POST">
+
+<input type="number" name="precio_compra" placeholder="Precio compra" value="{{producto.precio_compra}}">
+
+<input type="number" name="precio_venta" placeholder="Precio venta" value="{{producto.precio_venta}}">
+
+<input type="number" name="comision" placeholder="Comisión %" value="{{producto.comision}}">
+
+<input type="number" name="stock" placeholder="Stock" value="{{producto.stock}}">
+
+<button type="submit">Guardar cambios</button>
+
+</form>
+
+<br>
+
+<a class="volver" href="/productos">⬅ Volver</a>
+
+</div>
+
+</body>
+</html>

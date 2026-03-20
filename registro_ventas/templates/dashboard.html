@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+
+</head>
+
+<body>
+{% if rol == "dueno" %}
+
+<h1>📊 SISTEMA DE VENTAS</h1>
+
+<div class="cards">
+
+<div class="card">
+<h3>Ventas</h3>
+<p>${{ventas_totales}}</p>
+</div>
+
+<div class="card">
+<h3>Costos</h3>
+<p>${{costo_total}}</p>
+</div>
+
+<div class="card">
+<h3>Ganancia</h3>
+<p class="verde">${{ganancia_real}}</p>
+</div>
+
+</div>
+
+<hr>
+
+<h2>📊 Estadísticas</h2>
+
+Ventas totales: ${{ventas_totales}} <br>
+Costo productos: ${{costo_total}} <br>
+
+<h3 style="color:green">
+Ganancia real: ${{ganancia_real}}
+</h3>
+
+<hr>
+
+<h2>⚠ Productos con poco stock</h2>
+
+<ul>
+
+{% for p in stock_bajo %}
+<li>{{p.nombre}} → {{p.stock}}</li>
+{% endfor %}
+
+</ul>
+
+<hr>
+
+<h2>🏆 Producto más vendido</h2>
+
+{% if producto_top %}
+{{producto_top.nombre}} → {{producto_top.total}}
+{% endif %}
+
+<hr>
+
+<h2>👥 Ranking de vendedores</h2>
+
+<ol>
+
+{% for v in ranking %}
+<li>{{v.nombre}} → ${{v.total}}</li>
+{% endfor %}
+
+</ol>
+
+<hr>
+
+{% endif %}
+
+{% if rol == "dueno" %}
+
+<h3>Panel Principal</h3>
+<h4>Bienvenido Marcelo</h4>
+
+<div class="panel-grid">
+
+<a class="card-panel" href="/registro_empresa">🏢 <span>Crear empresa</span></a>
+
+<a class="card-panel" href="/productos">📦 <span>Gestionar productos</span></a>
+
+
+<a class="card-panel" href="/stock">📊 <span>Ver stock</span></a>
+
+<a class="card-panel" href="/crear_vendedor">👥 <span>Crear vendedor</span></a>
+
+<a class="card-panel" href="/eliminar_vendedor">❌ <span>Eliminar vendedor</span></a>
+
+<a class="card-panel" href="/crear_lider">👨‍💼 <span>Crear líder</span></a>
+
+<a class="card-panel" href="/eliminar_lider">🚫 <span>Eliminar líder</span></a>
+
+<a class="card-panel" href="/ventas">📊 <span>Ver ventas</span></a>
+
+<a class="card-panel" href="/ganancias">💰 <span>Ganancias</span></a>
+
+<a class="card-panel" href="/pagos">💳 <span>Pagos / adelantos</span></a>
+
+</div>
+
+{% elif rol == "lider" %}
+
+<h3>Control de ventas y stock</h3>
+
+<div class="panel-grid">
+
+<a class="card-panel" href="/ventas_equipo">
+📊 <span>Ventas del equipo</span>
+</a>
+
+<a class="card-panel" href="/stock">
+📦 <span>Ver stock</span>
+</a>
+
+</div>
+
+{% elif rol == "vendedor" %}
+
+<h3>Ventas</h3>
+
+<div class="panel-grid">
+
+<a class="card-panel" href="/venta">
+💰 <span>Registrar venta</span>
+</a>
+
+<a class="card-panel" href="/mis_ventas">
+📊 <span>Mis ventas</span>
+</a>
+
+<a class="card-panel" href="/mis_comisiones">
+💵 <span>Mis comisiones</span>
+</a>
+
+</div>
+
+{% endif %}
+
+<br><br>
+
+<a class="logout-btn" href="/logout">Cerrar sesión</a>

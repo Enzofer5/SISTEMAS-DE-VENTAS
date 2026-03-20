@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Eliminar vendedor</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+
+</head>
+
+<body class="login-body">
+
+<div class="form-container">
+
+<h2>🗑️ Eliminar Vendedor</h2>
+
+<form method="POST">
+
+<select name="vendedor_id" class="select-box">
+
+{% for v in vendedores %}
+
+<option value="{{v.id}}">
+{{v.nombre}} - {{v.email}}
+</option>
+
+{% endfor %}
+
+</select>
+
+<button class="btn-eliminar" type="submit">Eliminar vendedor</button>
+
+</form>
+
+<br>
+
+<a class="volver" href="/dashboard">⬅ Volver al panel</a>
+
+</div>
+
+</body>
+</html>

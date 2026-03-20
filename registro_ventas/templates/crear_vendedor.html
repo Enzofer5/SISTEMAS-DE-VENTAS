@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Crear vendedor</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+
+</head>
+
+<body class="login-body">
+
+<div class="form-container">
+
+<h2>👥 Crear Vendedor</h2>
+
+<form method="POST">
+
+<input type="text" name="nombre" placeholder="Nombre del vendedor" required>
+
+<input type="email" name="email" placeholder="Correo electrónico" required>
+
+<input type="password" name="password" placeholder="Contraseña" required>
+
+<button type="submit">Crear vendedor</button>
+
+</form>
+
+<br>
+
+<a class="volver" href="/dashboard">⬅ Volver al panel</a>
+
+</div>
+
+</body>
+</html>

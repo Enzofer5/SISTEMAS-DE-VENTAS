@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Ganancias</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+
+<body>
+
+<h2 class="titulo-panel">💰 Ganancias del negocio</h2>
+
+<table>
+
+<tr>
+<th>ID Venta</th>
+<th>Producto</th>
+<th>Vendedor</th>
+<th>Cantidad</th>
+<th>Total</th>
+<th>Fecha</th>
+</tr>
+
+{% for v in ventas %}
+
+<tr>
+<td>{{v.id}}</td>
+<td>{{v.producto}}</td>
+<td>{{v.vendedor}}</td>
+<td>{{v.cantidad}}</td>
+<td class="verde">${{v.total}}</td>
+<td>{{v.fecha}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<h2>Total vendido: <span class="verde">${{total.total_ventas}}</span></h2>
+
+<br>
+
+<a class="volver" href="/dashboard">⬅ Volver</a>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<h2 class="titulo-panel">📊 Ventas del equipo</h2>
+
+<table>
+
+<tr>
+<th>Vendedor</th>
+<th>Total vendido</th>
+</tr>
+
+{% for v in ventas %}
+
+<tr>
+<td>{{v.vendedor}}</td>
+<td class="verde">${{v.total_vendido}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a class="volver" href="/dashboard">⬅ Volver</a>

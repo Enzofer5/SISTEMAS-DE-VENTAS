@@ -1,0 +1,27 @@
+<h2 class="titulo-panel">💰 Registrar Venta</h2>
+
+<div class="form-container">
+
+<form method="POST">
+
+<select name="producto_id" class="select-box">
+
+{% for p in productos %}
+<option value="{{ p.id }}">
+{{ p.nombre }} - ${{ p.precio_venta }} (Stock: {{ p.stock }})
+</option>
+{% endfor %}
+
+</select>
+
+<input type="number" name="cantidad" placeholder="Cantidad" required>
+
+<button type="submit">Registrar venta</button>
+
+</form>
+
+</div>
+
+<br>
+
+<a class="volver" href="/dashboard">⬅ Volver</a>

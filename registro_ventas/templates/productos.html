@@ -1,0 +1,104 @@
+<h2 class="titulo-panel">📦 Crear producto</h2>
+
+<div class="form-container">
+
+<form method="POST">
+
+<input type="hidden" name="accion" value="crear">
+
+<input type="text" name="nombre" placeholder="Nombre producto">
+
+<input type="number" name="precio_compra" placeholder="Precio compra">
+
+<input type="number" name="precio_venta" placeholder="Precio venta">
+
+<input type="number" name="comision" placeholder="Comisión %">
+
+<button type="submit">Crear producto</button>
+
+</form>
+
+</div>
+
+
+<h2 class="titulo-panel">📦 Cargar stock</h2>
+
+<div class="form-container">
+
+<form method="POST">
+
+<input type="hidden" name="accion" value="stock">
+
+<select name="producto_id" class="select-box">
+
+{% for p in productos %}
+<option value="{{p.id}}">
+{{p.nombre}}
+</option>
+{% endfor %}
+
+</select>
+
+<input type="number" name="cantidad" placeholder="Cantidad">
+
+<button type="submit">Cargar stock</button>
+
+</form>
+
+</div>
+
+<h2 class="titulo-panel">📦 Lista de productos</h2>
+
+<table>
+
+<tr>
+<th>Producto</th>
+<th>Stock</th>
+<th>Compra</th>
+<th>Venta</th>
+<th>Ganancia</th>
+<th>Comisión</th>
+<th>Acciones</th>
+</tr>
+
+{% for p in productos %}
+
+<tr>
+
+<td>{{p.nombre}}</td>
+
+<td>
+
+{% if p.stock <= 3 %}
+<span class="rojo">⚠ {{p.stock}}</span>
+{% else %}
+{{p.stock}}
+{% endif %}
+
+</td>
+
+<td>${{p.precio_compra}}</td>
+
+<td>${{p.precio_venta}}</td>
+
+<td class="verde">${{p.precio_venta - p.precio_compra}}</td>
+
+<td>{{p.comision}}%</td>
+
+<td>
+
+<a href="/editar_producto/{{p.id}}">
+<button>✏️ Editar</button>
+</a>
+
+<a href="/eliminar_producto/{{p.id}}">
+<button class="btn-eliminar">🗑 Eliminar</button>
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>

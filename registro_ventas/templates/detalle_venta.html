@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Detalle de Venta</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+
+<body>
+
+<h2 class="titulo-panel">📄 Detalle de Venta</h2>
+
+<table>
+
+<tr>
+<th>Producto</th>
+<th>Cantidad</th>
+<th>Precio</th>
+<th>Comisión %</th>
+</tr>
+
+{% for d in detalles %}
+
+<tr>
+<td>{{ d.nombre }}</td>
+<td>{{ d.cantidad }}</td>
+<td>${{ d.precio_unitario }}</td>
+<td>{{ d.comision_aplicada }}%</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a class="volver" href="/ventas">⬅ Volver a ventas</a>
+
+</body>
+</html>

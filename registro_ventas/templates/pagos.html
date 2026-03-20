@@ -1,0 +1,27 @@
+<h2 class="titulo-panel">💳 Pagos a vendedores</h2>
+
+<table>
+
+<tr>
+<th>Vendedor</th>
+<th>Monto</th>
+<th>Tipo</th>
+<th>Fecha</th>
+</tr>
+
+{% for p in pagos %}
+
+<tr>
+<td>{{p.vendedor}}</td>
+<td class="verde">${{p.monto}}</td>
+<td>{{p.tipo}}</td>
+<td>{{p.fecha}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a class="volver" href="/dashboard">⬅ Volver</a>

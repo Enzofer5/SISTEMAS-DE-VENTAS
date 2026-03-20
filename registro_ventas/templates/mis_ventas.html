@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Mis Ventas</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+
+<body>
+
+<h2 class="titulo-panel">📊 Mis Ventas</h2>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Producto</th>
+<th>Cantidad</th>
+<th>Total</th>
+<th>Fecha</th>
+</tr>
+
+{% for v in ventas %}
+
+<tr>
+<td>{{v.id}}</td>
+<td>{{v.nombre}}</td>
+<td>{{v.cantidad}}</td>
+<td class="verde">${{v.total}}</td>
+<td>{{v.fecha}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a class="volver" href="/dashboard">⬅ Volver</a>
+
+</body>
+</html>

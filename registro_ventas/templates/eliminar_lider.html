@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Eliminar líder</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+
+</head>
+
+<body class="login-body">
+
+<div class="form-container">
+
+<h2>🗑️ Eliminar Líder</h2>
+
+<form method="POST">
+
+<select name="lider_id" class="select-box">
+
+{% for l in lideres %}
+
+<option value="{{l.id}}">
+{{l.nombre}} - {{l.email}}
+</option>
+
+{% endfor %}
+
+</select>
+
+<button class="btn-eliminar" type="submit">Eliminar líder</button>
+
+</form>
+
+<br>
+
+<a class="volver" href="/dashboard">⬅ Volver al panel</a>
+
+</div>
+
+</body>
+</html>

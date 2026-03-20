@@ -1,0 +1,27 @@
+<h2 class="titulo-panel">📦 Stock de Productos</h2>
+
+<table>
+
+<tr>
+<th>Producto</th>
+<th>Stock</th>
+<th>Precio Compra</th>
+<th>Precio Venta</th>
+</tr>
+
+{% for p in productos %}
+
+<tr>
+<td>{{ p.nombre }}</td>
+<td>{{ p.stock }}</td>
+<td>${{ p.precio_compra }}</td>
+<td>${{ p.precio_venta }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a class="volver" href="/dashboard">⬅ Volver</a>

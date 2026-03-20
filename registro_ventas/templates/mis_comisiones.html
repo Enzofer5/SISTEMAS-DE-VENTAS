@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Mis Comisiones</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+
+<body>
+
+<h2 class="titulo-panel">💰 Mis Comisiones</h2>
+
+<table>
+
+<tr>
+<th>Producto</th>
+<th>Cantidad</th>
+<th>Comisión</th>
+<th>Fecha</th>
+</tr>
+
+{% for v in ventas %}
+
+<tr>
+<td>{{v.nombre}}</td>
+<td>{{v.cantidad}}</td>
+<td class="verde">${{v.comision_aplicada}}</td>
+<td>{{v.fecha}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<h3>Total comisiones: <span class="verde">${{total.total}}</span></h3>
+
+<br>
+
+<a class="volver" href="/dashboard">⬅ Volver</a>
+
+</body>
+</html>
