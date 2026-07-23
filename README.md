@@ -1,15 +1,16 @@
 # 👋 Hola, soy Enzo Fernández
 
-💻 Desarrollador en formación  
-🎓 Estudiante de Programación (UTN)  
+💻 Desarrollador full stack
+🎓 Programador (UTN)  
 🔐 Cursando Ciberseguridad  
 
 ---
 
 ## 🚀 Tecnologías
-- Python
+- Python, 
 - Flask
 - MySQL
+- MongoDB
 - HTML, CSS, JavaScript
 
 ---
